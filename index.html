@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <link href=
+'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' 
+          rel='stylesheet'>
+    <style>
+        .ui-datepicker {
+            width: 12em; 
+        }
+        h1{
+            color:green;
+        }
+    </style>
+</head>
+  
+<body>
+    <center>
+        <h1>jQuery range date validation </h1> 
+          Start Date:
+        <input type="text" id="my_date_picker1"> 
+        <br />
+          End Date:
+        <input type="text" id="my_date_picker2">
+        <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+        </script>
+        <script src=
+"https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+        </script>
+        <script>
+            $(document).ready(function() {
+  
+                $(function() {
+                    $("#my_date_picker1").datepicker({});
+                });
+  
+                $(function() {
+                    $("#my_date_picker2").datepicker({});
+                });
+  
+                $('#my_date_picker1').change(function() {
+                    startDate = $(this).datepicker('getDate');
+                    $("#my_date_picker2").datepicker("option", "minDate", startDate);
+                })
+  
+                $('#my_date_picker2').change(function() {
+                    endDate = $(this).datepicker('getDate');
+                    $("#my_date_picker1").datepicker("option", "maxDate", endDate);
+                })
+            })
+        </script>
+    </center>
+</body>
+  
+</html>
+Output:
